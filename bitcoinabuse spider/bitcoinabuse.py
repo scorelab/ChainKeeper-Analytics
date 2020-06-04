@@ -70,7 +70,6 @@ def main():
     record_file.write('\n'.join(list(map(str,rslt))))
     record_file.flush()
     record_file.close()
-    print(rslt)
     return 0
 
 
