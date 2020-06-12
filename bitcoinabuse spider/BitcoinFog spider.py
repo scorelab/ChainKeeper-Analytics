@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 import json
 import pandas as pd
 from tqdm  import tqdm
@@ -14,26 +11,14 @@ from datetime import datetime
 from time import sleep
 
 
-# In[ ]:
-
-
 URL_home = 'http://www.walletexplorer.com/api/1/wallet-addresses?wallet=BitcoinFog&from=0&count=100&caller=###'
 URL_tx = 'http://www.walletexplorer.com/api/1/address?address={}&from=0&count=100&caller=####'
-
-
-# In[ ]:
 
 
 response = get(URL_home)
 
 
-# In[ ]:
-
-
 data = json.loads(response.text)
-
-
-# In[ ]:
 
 
 for i in tqdm(data.get('addresses')):
@@ -42,13 +27,7 @@ for i in tqdm(data.get('addresses')):
     sleep(2)
 
 
-# In[ ]:
-
-
 FILENAME = datetime.now().strftime("%y-%m-%d")+' BitcoinFog.json'
-
-
-# In[ ]:
 
 
 with open(FILENAME, 'w') as outfile:
