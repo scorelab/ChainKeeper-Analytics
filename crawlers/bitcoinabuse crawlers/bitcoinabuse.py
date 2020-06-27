@@ -39,7 +39,7 @@ def main():
     data = pd.DataFrame(data)
     data.to_csv(FILENAME.format(' bitcoin abuse list.csv'))
 
-    record_file = open(FILENAME.format(' bitcoin abuse reports.txt'),'w')
+    record_file = open(FILENAME.format(' bitcoin abuse reports.json'),'w')
     rslt = []
     for index, row in tqdm(data.iterrows()):
         url = 'https://api.blockcypher.com/v1/btc/main/addrs/{}/balance'.format(row.address)
