@@ -1,9 +1,11 @@
 from requests import get
 import tqdm 
 import time
+import pandas as pd
+import json
 
 TOKEN = ''
-l = [i.splir()[0] for i in open('baddr','r').readlines()]
+l = [i.split()[0] for i in open('baddr','r').readlines()]
 DATA = []
 
 for i in tqdm.notebook.tqdm(set(l)):
@@ -12,3 +14,7 @@ for i in tqdm.notebook.tqdm(set(l)):
     time.sleep(1.2)
     print(data)
     DATA.append(data)
+
+DATA = list(map(json.loads,DATA))
+DATA = pd.DataFrame(DATA)
+DATA.to_csv("scan_repote.csv")
