@@ -10,7 +10,7 @@ db = client["SCAN"]
 col = db["walletexplorer"]
 
 l = [i.split()[0] for i in open('baddr','r').readlines()]
-TOKEN = 'ravindud@scorelab.org'
+TOKEN = ''
 
 
 for i in set(l):
