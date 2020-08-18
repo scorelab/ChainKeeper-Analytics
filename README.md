@@ -9,3 +9,29 @@ We believe bitcoin transactions grabs so many patterns rather we can grab from t
 Then we can project some well-known addresses from different sources into the bitcoin graph and check the projection density of these labeled addresses on each connected component. This method also very naive because of the labeling process of the well-known address and bitcoin graph may have two different time states. Since the bitcoin graph is dynamic we have to have much robust and real-time label production, in this way the entire process will depend on the state of update level of known labeled address.
 
 We believe in order to overcome this highly dynamic behaviour of bitcoin graph and understand the real nature of the bitcoin graph, we have to go a little step further than classical features and labeling training. This approach based on a transaction property graph [Table 1] of the entire blockchain and adding super vertices using (https://www.walletexplorer.com/). And follow the process of above paragraph. In order to keep the system up to date, the deployment of this model should integrate into a data pipeline.<br>
+## Data gathering crawlers <br>
+To set up crawlers, first set up apache airflow (optional these crawlers can run as standalone python executable with Cron jobs) 
+#### Set up Apache Airflow
+```
+export AIRFLOW_HOME=~/airflow
+pip install apache-airflow
+airflow initdb
+airflow webserver -p 8080
+airflow scheduler
+```
+#### Add new crawlers <br>
+Edit ```./airflow/dag1.py``` and load the dag to AirFlow 
+## Data analysis environment <br>
+This project contains a couple of docker environments to easily set up BlockSci blockchain analysis tool with Jupiter notebook and Docker environment for setting up TensorFlow, Jupiter notebook with stellar graph
+#### Docker build <br>
+```
+cd ChainKeeper-Analytics/docker/BlockSci V0.7 Docker/
+docker build -t <TAG> .
+
+cd ChainKeeper-Analytics/docker/Anaconda-Tensorflow-Stellargraph Docker/
+docker build -t <TAG> .
+```
+#### View some sample data that we collected <br>
+view some sample data at ``` ChainKeeper-Analytics/data/ ```
+### Analysis
+Check data analysis and modeling the collected data to a graph ``` ChainKeeper-Analytics/notebooks/ ```
