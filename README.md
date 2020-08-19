@@ -9,7 +9,7 @@ We believe bitcoin transactions grabs so many patterns rather we can grab from t
 Then we can project some well-known addresses from different sources into the bitcoin graph and check the projection density of these labeled addresses on each connected component. This method also very naive because of the labeling process of the well-known address and bitcoin graph may have two different time states. Since the bitcoin graph is dynamic we have to have much robust and real-time label production, in this way the entire process will depend on the state of update level of known labeled address.
 
 We believe in order to overcome this highly dynamic behaviour of bitcoin graph and understand the real nature of the bitcoin graph, we have to go a little step further than classical features and labeling training. This approach based on a transaction property graph [Table 1] of the entire blockchain and adding super vertices using (https://www.walletexplorer.com/). And follow the process of above paragraph. In order to keep the system up to date, the deployment of this model should integrate into a data pipeline.<br> <br>
-![Untitled Diagram (2)](https://user-images.githubusercontent.com/20130001/90658285-06158480-e261-11ea-9918-3dd3e90b1dfa.png) <br> <br>
+![Untitled Diagram (3)](https://user-images.githubusercontent.com/20130001/90658529-4e34a700-e261-11ea-93bf-b53f0d906350.png) <br> <br>
 ## Data gathering crawlers <br>
 To set up crawlers, first set up apache airflow (optional these crawlers can run as standalone python executable with Cron jobs) 
 #### Set up Apache Airflow
